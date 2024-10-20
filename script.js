@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const tweetInput = document.querySelector(".tweetbox__input input");
     const feed = document.querySelector(".feed");
     
-    const BIN_ID = '6713c6caacd3cb34a899b262'; // Your BIN_ID
+    const BIN_ID = '6714a49ce41b4d34e445ca78'; // Your BIN_ID
     const ACCESS_KEY = '$2a$10$tLeRimVEHOxU0NpB.1oNm.AfMTykeajNJofXZAy.wdnbpBgUVRZue'; // Your ACCESS_KEY
     const API_KEY = '$2a$10$Y2cSsRKOyq5nTYjGxdwiRuBy6GNQdwP1UGjzQ44aBtH18ec5Qhp6a'; // Your API_KEY
 
@@ -99,9 +99,7 @@ const putResponse = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
         'X-Access-Key': ACCESS_KEY,
         'X-Bin-Versioning': 'false' // Disable version control for updates
     },
-    body: JSON.stringify({ record: { // Wrap tweets inside 'record'
-        tweets: tweets // The tweets array to be updated
-    } })
+    body: JSON.stringify({ tweets })
 });
 
                 if (putResponse.ok) {
