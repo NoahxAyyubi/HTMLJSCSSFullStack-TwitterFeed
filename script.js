@@ -85,21 +85,24 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
                 const existingData = await existingResponse.json();
-                const tweets = existingData.record.tweets || [];
+                const tweets = existingData.record.tweets;
 
                 // Step 2: Add the new tweet
                 tweets.push(newTweet);
 
-                // Step 3: Update the JSONBin with the new array of tweets
-                const putResponse = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-Master-Key': API_KEY, // Access Key for JSONBin
-                        'X-Access-Key' : ACCESS_KEY
-                    },
-                    body: JSON.stringify({ tweets })
-                });
+              // Step 3: Update the JSONBin with the new array of tweets
+const putResponse = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+    method: 'PUT',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-Master-Key': API_KEY, // Access Key for JSONBin
+        'X-Access-Key': ACCESS_KEY,
+        'X-Bin-Versioning': 'false' // Disable version control for updates
+    },
+    body: JSON.stringify({ record: { // Wrap tweets inside 'record'
+        tweets: tweets // The tweets array to be updated
+    } })
+});
 
                 if (putResponse.ok) {
                     const updatedTweet = createTweetElement(newTweet);
