@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const tweetInput = document.querySelector(".tweetbox__input input");
     const feed = document.querySelector(".feed");
     
-    const BIN_ID = '6714a49ce41b4d34e445ca78'; // Your BIN_ID
+    const BIN_ID = '6714a57bacd3cb34a899ff65'; // Your BIN_ID
     const ACCESS_KEY = '$2a$10$tLeRimVEHOxU0NpB.1oNm.AfMTykeajNJofXZAy.wdnbpBgUVRZue'; // Your ACCESS_KEY
     const API_KEY = '$2a$10$Y2cSsRKOyq5nTYjGxdwiRuBy6GNQdwP1UGjzQ44aBtH18ec5Qhp6a'; // Your API_KEY
 
